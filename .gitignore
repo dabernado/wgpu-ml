@@ -2,7 +2,5 @@ _build
 .merlin
 Cargo.lock
 target
-bs/node_modules
-bs/yarn.lock
-bs/Cargo.lock
-bs/target
+node_modules
+yarn.lock

@@ -2,7 +2,7 @@
   "name": "bs-wgpu",
   "version": "0.1.0",
   "sources": {
-    "dir" : "src",
+    "dir" : "bs",
     "subdirs" : true
   },
   "package-specs": {
