@@ -1,0 +1,17 @@
+[package]
+name = "wgpu"
+version = "0.1.0"
+authors = ["David Bernado <bernadda@whitman.edu>"]
+edition = "2018"
+
+[lib]
+crate-type = ["staticlib", "cdylib"]
+
+[dependencies]
+ocaml = "*"
+image = "*"
+wgpu = "*"
+futures = "*"
+
+# Or use the development version:
+# ocaml = {git = "git://github.com/zshipko/ocaml-rs"}

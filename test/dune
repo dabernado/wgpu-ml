@@ -1,0 +1,9 @@
+(executables
+ (libraries wgpu)
+ (names test)
+ (modules test))
+
+(rule
+ (alias runtest)
+ (action
+  (run ./test.exe)))
