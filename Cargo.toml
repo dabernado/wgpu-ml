@@ -5,6 +5,7 @@ authors = ["David Bernado <bernadda@whitman.edu>"]
 edition = "2018"
 
 [lib]
+path = "native/src/lib.rs"
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]

@@ -1,10 +1,14 @@
 {
   "name": "bs-wgpu",
   "version": "0.1.0",
-  "sources": {
-    "dir" : "bs",
+  "sources": [{
+    "dir" : "bs/src",
     "subdirs" : true
-  },
+  }, {
+    "dir": "bs/test",
+    "type": "dev",
+    "subdirs": true
+  }],
   "package-specs": {
     "module": "commonjs",
     "in-source": true
