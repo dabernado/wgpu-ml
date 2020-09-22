@@ -1,0 +1,19 @@
+(dirs src native)
+  (include_subdirs unqualified)
+
+  (rule
+    (targets libwgpu.a dllwgpu.so)
+    (deps (glob_files *.rs))
+    (action
+      (progn
+        (run cargo build --target-dir %{project_root}/../../target --release)
+        (run sh -c
+          "mv %{project_root}/../../target/release/libwgpu.so ./dllwgpu.so 2> /dev/null || \
+          mv %{project_root}/../..target/release/libwgpu.dylib ./dllwgpu.so")
+        (run mv %{project_root}/../../target/release/libwgpu.a libwgpu.a))))
+
+  (library
+    (name wgpu)
+    (foreign_archives wgpu)
+    (c_library_flags
+      (-lpthread -lc -lm)))

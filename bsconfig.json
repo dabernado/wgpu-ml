@@ -2,10 +2,13 @@
   "name": "bs-wgpu",
   "version": "0.1.0",
   "sources": [{
-    "dir" : "bs/src",
+    "dir" : "js",
     "subdirs" : true
   }, {
-    "dir": "bs/test",
+    "dir" : "src",
+    "subdirs" : true
+  }, {
+    "dir": "test",
     "type": "dev",
     "subdirs": true
   }],
