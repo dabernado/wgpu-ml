@@ -1,0 +1,13 @@
+[package]
+name = "wgpu"
+version = "0.1.0"
+authors = ["David Bernado <bernadda@whitman.edu>"]
+edition = "2018"
+
+[lib]
+path = "./lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+wgpu = { git = "https://github.com/gfx-rs/wgpu-rs.git" }
+wasm-bindgen = "0.2"

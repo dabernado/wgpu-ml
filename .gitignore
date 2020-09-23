@@ -1,6 +1,9 @@
 _build
 .merlin
-Cargo.lock
 target
-node_modules
-yarn.lock
+js/wgpu.js
+js/wgpu_bg.wasm
+js/Cargo.lock
+js/target
+native/Cargo.lock
+native/target

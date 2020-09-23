@@ -5,13 +5,9 @@ authors = ["David Bernado <bernadda@whitman.edu>"]
 edition = "2018"
 
 [lib]
-path = "native/lib.rs"
+path = "./lib.rs"
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
 ocaml = "0.16"
 wgpu = "0.6"
-futures = "*"
-
-# Or use the development version:
-# ocaml = {git = "git://github.com/zshipko/ocaml-rs"}
