@@ -2,9 +2,9 @@
   "name": "bs-wgpu",
   "version": "0.1.0",
   "scripts": {
-    "build": "cargo build --manifest-path js/Cargo.toml --target wasm32-unknown-unknown && wasm-bindgen --no-typescript --out-dir js --web js/target/wasm32-unknown-unknown/debug/wgpu.wasm && bsb -make-world",
-    "start": "cargo build --manifest-path js/Cargo.toml --target wasm32-unknown-unknown && wasm-bindgen --no-typescript --out-dir js --web js/target/wasm32-unknown-unknown/debug/wgpu.wasm && bsb -make-world -w",
-    "clean": "rm -rf js/target && rm js/wgpu.js  && rm js/wgpu_bg.wasm && bsb -clean-world"
+    "build": "RUSTFLAGS=--cfg=web_sys_unstable_apis cargo build --manifest-path js/Cargo.toml --target wasm32-unknown-unknown && wasm-bindgen --no-typescript --out-dir js --web js/target/wasm32-unknown-unknown/debug/wgpu.wasm && bsb -make-world",
+    "start": "RUSTFLAGS=--cfg=web_sys_unstable_apis cargo build --manifest-path js/Cargo.toml --target wasm32-unknown-unknown && wasm-bindgen --no-typescript --out-dir js --web js/target/wasm32-unknown-unknown/debug/wgpu.wasm && bsb -make-world -w",
+    "clean": "rm -rf js/target && rm -rf lib && rm js/wgpu.js  && rm js/wgpu_bg.wasm && bsb -clean-world"
   },
   "keywords": [
     "BuckleScript"
