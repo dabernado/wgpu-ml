@@ -1,5 +1,6 @@
 _build
 node_modules
+lib
 .merlin
 target
 js/wgpu.js
