@@ -10,6 +10,8 @@ Both the OCaml and ReasonML ecosystems desperately need bindings to a modern gra
 
 ## Build & Install
 
+In order to build, you must have a Rust toolchain installed in your environment along with whichever OCaml compiler you intend to use.
+
 For native, use `dune` to build and install.
 ```
 dune build && dune install
