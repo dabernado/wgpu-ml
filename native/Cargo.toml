@@ -11,3 +11,4 @@ crate-type = ["staticlib", "cdylib"]
 [dependencies]
 ocaml = "0.16"
 wgpu = "0.6"
+raw-window-handle = "0.3"

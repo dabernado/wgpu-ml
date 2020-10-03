@@ -1,7 +1,10 @@
 include Stubs;
 
+/*
+ * Variants
+ */
 type backendBit =
-    Vulkan
+  | Vulkan
   | GL
   | Metal
   | DX12
@@ -10,8 +13,19 @@ type backendBit =
   | Primary
   | Secondary;
 
+type window =
+  | MacOS
+  | Xlib
+  | Xcb
+  | Wayland
+  | Windows
+  | Web;
+
 type powerPreference = Default | LowPower | HighPerformance;
 
-type instance = Instance backendBit;
-
-type adapter;
+/*
+ * Custom types
+ */
+type instance;
+type surface;
+//type adapter;
