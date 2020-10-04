@@ -18,6 +18,7 @@ struct Device(wgpu::Device);
 struct Queue(wgpu::Queue);
 struct ShaderModule(wgpu::ShaderModule);
 struct ShaderModuleSource<'a>(wgpu::ShaderModuleSource<'a>);
+struct CommandEncoder(wgpu::CommandEncoder);
 ocaml::custom! (Instance);
 ocaml::custom! (Surface);
 ocaml::custom! (Adapter);
@@ -25,6 +26,7 @@ ocaml::custom! (Device);
 ocaml::custom! (Queue);
 ocaml::custom! (ShaderModule);
 ocaml::custom! (ShaderModuleSource<'a>);
+ocaml::custom! (CommandEncoder);
 
 trait ToRust<T> {
     fn as_rust(&self) -> T;
@@ -271,7 +273,7 @@ pub unsafe fn enumerate_adapters(
 pub unsafe fn request_device(
     adapter: ocaml::Pointer<Adapter>,
     desc: DeviceDescriptor,
-    trace_path: Option<str>,
+    trace_path: Option<&str>,
 ) -> (Device, Queue) {
     let w_adapter = adapter.as_ref().0;
     let tpath = match trace_path {
@@ -300,4 +302,17 @@ pub unsafe fn create_shader_module(
     let w_source = source.as_ref().0;
 
     ShaderModule(w_device.create_shader_module(w_source))
+}
+
+#[cfg(feature = "derive")]
+#[ocaml::func]
+pub unsafe fn create_command_encoder(
+    device: ocaml::Pointer<Device>,
+    desc: Option<&str>,
+    ) -> CommandEncoder {
+    let w_device = device.as_ref().0;
+
+    CommandEncoder(w_device.create_command_encoder(&wgpu::CommandEncoderDescriptor {
+        label: desc,
+    }))
 }

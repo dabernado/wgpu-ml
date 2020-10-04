@@ -46,7 +46,9 @@ type surface;
 type adapter;
 type device;
 type queue;
+type shaderModule;
 type shaderModuleSource;
+type commandEncoder;
 
 /*
  * Descriptor types
@@ -69,6 +71,8 @@ type deviceDescriptor = {
   limits: limits,
   shader_validation: bool,
 };
+
+type commandEncoderDescriptor = string option;
 
 /*
  * Constants

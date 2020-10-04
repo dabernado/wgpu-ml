@@ -14,10 +14,12 @@ module type WebGPU = {
   type queue;
   type shaderModule;
   type shaderModuleSource;
+  type commandEncoder;
 
   // descriptor types
   type deviceDescriptor;
   type limits;
+  type commandEncoderDescriptor;
 
   // faux-type constructors
   let Instance: backendBit => instance;
@@ -33,6 +35,7 @@ module type WebGPU = {
   let requestDevice: (adapter, deviceDescriptor, string option) => (device, queue);
 
   let createShaderModule: (device, shaderModuleSource) => shaderModule;
+  let createCommandEncoder: (device, commandEncoderDescriptor) => commandEncoder;
 
   let includeSPIRV: string => shaderModuleSource;
 };
