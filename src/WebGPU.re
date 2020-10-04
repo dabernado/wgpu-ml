@@ -46,6 +46,7 @@ type surface;
 type adapter;
 type device;
 type queue;
+type shaderModuleSource;
 
 /*
  * Descriptor types

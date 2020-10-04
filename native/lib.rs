@@ -16,11 +16,13 @@ struct Surface(wgpu::Surface);
 struct Adapter(wgpu::Adapter);
 struct Device(wgpu::Device);
 struct Queue(wgpu::Queue);
+struct ShaderModuleSource<'a>(wgpu::ShaderModuleSource<'a>);
 ocaml::custom! (Instance);
 ocaml::custom! (Surface);
 ocaml::custom! (Adapter);
 ocaml::custom! (Device);
 ocaml::custom! (Queue);
+ocaml::custom! (ShaderModuleSource<'a>);
 
 trait ToRust<T> {
     fn as_rust(&self) -> T;
@@ -279,3 +281,7 @@ pub unsafe fn request_device(
         .await
         .expect("Failed to create device")
 }
+
+#[cfg(feature = "derive")]
+#[ocaml::func]
+pub unsafe fn include_spirv(s: str) -> ShaderModuleSource { wgpu::include_spirv!(s) }

@@ -4,3 +4,5 @@ external enumerateAdapters: (instance, backendBit) => adapter list = "enumerate_
 external createSurface: window => surface = "create_surface";
 
 external requestDevice: (adapter, deviceDescriptor, string option) => (device, queue) = "request_device";
+
+external includeSPIRV: string => shaderModuleSource = "include_spirv";
