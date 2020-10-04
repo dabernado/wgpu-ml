@@ -20,6 +20,9 @@ module type WebGPU = {
   // faux-type constructors
   let Instance: backendBit => instance;
 
+  // constants
+  let defaultLimits: limits;
+
   // functions
   let requestAdapter: (instance, surface, powerPreference) => adapter;
   let enumerateAdapters: (instance, backendBit) => adapter list;
