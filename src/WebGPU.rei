@@ -12,6 +12,7 @@ module type WebGPU = {
   type surface;
   type device;
   type queue;
+  type shaderModule;
   type shaderModuleSource;
 
   // descriptor types
@@ -30,6 +31,8 @@ module type WebGPU = {
   let createSurface: (instance, window) => surface;
 
   let requestDevice: (adapter, deviceDescriptor, string option) => (device, queue);
+
+  let createShaderModule: (device, shaderModuleSource) => shaderModule;
 
   let includeSPIRV: string => shaderModuleSource;
 };

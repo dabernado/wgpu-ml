@@ -16,12 +16,14 @@ struct Surface(wgpu::Surface);
 struct Adapter(wgpu::Adapter);
 struct Device(wgpu::Device);
 struct Queue(wgpu::Queue);
+struct ShaderModule(wgpu::ShaderModule);
 struct ShaderModuleSource<'a>(wgpu::ShaderModuleSource<'a>);
 ocaml::custom! (Instance);
 ocaml::custom! (Surface);
 ocaml::custom! (Adapter);
 ocaml::custom! (Device);
 ocaml::custom! (Queue);
+ocaml::custom! (ShaderModule);
 ocaml::custom! (ShaderModuleSource<'a>);
 
 trait ToRust<T> {
@@ -284,4 +286,18 @@ pub unsafe fn request_device(
 
 #[cfg(feature = "derive")]
 #[ocaml::func]
-pub unsafe fn include_spirv(s: str) -> ShaderModuleSource { wgpu::include_spirv!(s) }
+pub unsafe fn include_spirv(s: str) -> ShaderModuleSource {
+    ShaderModuleSource(wgpu::include_spirv!(s))
+}
+
+#[cfg(feature = "derive")]
+#[ocaml::func]
+pub unsafe fn create_shader_module(
+    device: ocaml::Pointer<Device>,
+    source: ocaml::Pointer<ShaderModuleSource>,
+) -> ShaderModule {
+    let w_device = device.as_ref().0;
+    let w_source = source.as_ref().0;
+
+    ShaderModule(w_device.create_shader_module(w_source))
+}
