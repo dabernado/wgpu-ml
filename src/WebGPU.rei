@@ -28,5 +28,5 @@ module type WebGPU = {
   let enumerateAdapters: (instance, backendBit) => adapter list;
   let createSurface: (instance, window) => surface;
 
-  let requestDevice: (adapter, deviceDescriptor) => (device, queue);
+  let requestDevice: (adapter, deviceDescriptor, string option) => (device, queue);
 };

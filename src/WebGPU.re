@@ -35,7 +35,8 @@ type features =
   | MultiDrawIndirectCount
   | PushConstants
   | AllWebGPU
-  | AllNative;
+  | AllNative
+  | Empty;
 
 /*
  * Custom types

@@ -3,4 +3,4 @@ external requestAdapter: (instance, surface, powerPreference) => adapter = "requ
 external enumerateAdapters: (instance, backendBit) => adapter list = "enumerate_adapters";
 external createSurface: window => surface = "create_surface";
 
-external requestDevice: (adapter, deviceDescriptor) => (device, queue) = "request_device";
+external requestDevice: (adapter, deviceDescriptor, string option) => (device, queue) = "request_device";
