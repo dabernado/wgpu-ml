@@ -28,4 +28,4 @@ type powerPreference = Default | LowPower | HighPerformance;
  */
 type instance;
 type surface;
-//type adapter;
+type adapter;
