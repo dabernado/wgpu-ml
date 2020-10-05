@@ -163,41 +163,31 @@ impl ToRust<wgpu::Features> for Features {
 
 #[derive(ocaml::ToValue, ocaml::FromValue)]
 struct Limits {
-  max_bind_groups: ocaml::Int,
-  max_dynamic_uniform_buffers_per_pipeline_layout: ocaml::Int,
-  max_dynamic_storage_buffers_per_pipeline_layout: ocaml::Int,
-  max_sampled_textures_per_shader_stage: ocaml::Int,
-  max_samplers_per_shader_stage: ocaml::Int,
-  max_storage_buffers_per_shader_stage: ocaml::Int,
-  max_storage_textures_per_shader_stage: ocaml::Int,
-  max_uniform_buffers_per_shader_stage: ocaml::Int,
-  max_uniform_buffer_binding_size: ocaml::Int,
-  max_push_constant_size: ocaml::Int,
+  max_bind_groups: u32,
+  max_dynamic_uniform_buffers_per_pipeline_layout: u32,
+  max_dynamic_storage_buffers_per_pipeline_layout: u32,
+  max_sampled_textures_per_shader_stage: u32,
+  max_samplers_per_shader_stage: u32,
+  max_storage_buffers_per_shader_stage: u32,
+  max_storage_textures_per_shader_stage: u32,
+  max_uniform_buffers_per_shader_stage: u32,
+  max_uniform_buffer_binding_size: u32,
+  max_push_constant_size: u32,
 }
 
 impl ToRust<wgpu::Limits> for Limits {
     fn as_rust(&self) -> wgpu::Limits {
         wgpu::Limits {
-            max_bind_groups:
-                u32::try_from(self.max_bind_groups).unwrap(),
-            max_dynamic_uniform_buffers_per_pipeline_layout:
-                u32::try_from(self.max_dynamic_uniform_buffers_per_pipeline_layout).unwrap(),
-            max_dynamic_storage_buffers_per_pipeline_layout:
-                u32::try_from(self.max_dynamic_storage_buffers_per_pipeline_layout).unwrap(),
-            max_sampled_textures_per_shader_stage:
-                u32::try_from(self.max_sampled_textures_per_shader_stage).unwrap(),
-            max_samplers_per_shader_stage:
-                u32::try_from(self.max_samplers_per_shader_stage).unwrap(),
-            max_storage_buffers_per_shader_stage:
-                u32::try_from(self.max_storage_buffers_per_shader_stage).unwrap(),
-            max_storage_textures_per_shader_stage:
-                u32::try_from(self.max_storage_textures_per_shader_stage).unwrap(),
-            max_uniform_buffers_per_shader_stage:
-                u32::try_from(self.max_uniform_buffers_per_shader_stage).unwrap(),
-            max_uniform_buffer_binding_size:
-                u32::try_from(self.max_uniform_buffer_binding_size).unwrap(),
-            max_push_constant_size:
-                u32::try_from(self.max_push_constant_size).unwrap(),
+            max_bind_groups: self.max_bind_groups,
+            max_dynamic_uniform_buffers_per_pipeline_layout: self.max_dynamic_uniform_buffers_per_pipeline_layout,
+            max_dynamic_storage_buffers_per_pipeline_layout: self.max_dynamic_storage_buffers_per_pipeline_layout,
+            max_sampled_textures_per_shader_stage: self.max_sampled_textures_per_shader_stage,
+            max_samplers_per_shader_stage: self.max_samplers_per_shader_stage,
+            max_storage_buffers_per_shader_stage: self.max_storage_buffers_per_shader_stage,
+            max_storage_textures_per_shader_stage: self.max_storage_textures_per_shader_stage,
+            max_uniform_buffers_per_shader_stage: self.max_uniform_buffers_per_shader_stage,
+            max_uniform_buffer_binding_size: self.max_uniform_buffer_binding_size,
+            max_push_constant_size: self.max_push_constant_size,
         }
     }
 }
