@@ -49,8 +49,11 @@ external copyTextureToTexture: (
   textureCopyView,
   extent3D,
   ) => () = "copy_texture_to_texture";
-external beginRenderPass: (commandEncoder, renderPassDescriptor) => renderPass;
-external beginComputePass: commandEncoder => computePass;
-external finishRecording: commandEncoder => commandEncoder;
+external beginRenderPass: (
+  commandEncoder,
+  renderPassDescriptor
+  ) => renderPass = "begin_render_pass";
+external beginComputePass: commandEncoder => computePass = "begin_compute_pass";
+external finishRecording: commandEncoder => commandEncoder = "finish_recording";
 
 external includeSPIRV: string => shaderModuleSource = "include_spirv";
