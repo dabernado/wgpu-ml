@@ -38,6 +38,8 @@ type features =
   | AllNative
   | Empty;
 
+type loadOp('a) = Clear('a) | Load;
+
 /*
  * Custom types
  */
@@ -79,9 +81,11 @@ type deviceDescriptor = {
 
 type commandEncoderDescriptor = string option;
 
-type renderPassDescriptor = {
-  colorAttachments: renderPassColorAttachmentDescriptor list,
-  depthStencilAttachment: renderPassDepthStencilAttachmentDescriptor option,
+type color = (float, float, float, float);
+
+type operations('a) = {
+  load: loadOp('a),
+  store: bool,
 };
 
 type renderPassColorAttachmentDescriptor = {
@@ -96,18 +100,14 @@ type renderPassDepthStencilAttachmentDescriptor = {
   stencil_ops: operations(int32) option,
 };
 
-type color = (float, float, float, float);
+type renderPassDescriptor = {
+  colorAttachments: renderPassColorAttachmentDescriptor list,
+  depthStencilAttachment: renderPassDepthStencilAttachmentDescriptor option,
+};
 
 type extent3D = (int32, int32, int32);
 
 type origin3D = (int32, int32, int32);
-
-type operations('a) = {
-  load: loadOp('a),
-  store: bool,
-};
-
-type loadOp('a) = Clear('a) | Load;
 
 type textureDataLayout = {
   offset: int64,

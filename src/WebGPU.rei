@@ -5,6 +5,7 @@ module type WebGPU = {
   type powerPreference;
   type window;
   type features;
+  type loadOp;
 
   // custom types
   type instance;
@@ -33,7 +34,6 @@ module type WebGPU = {
   type origin3D;
   type color;
   type operations;
-  type loadOp;
 
   // handle types
   type bufferCopyView;
